@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<div data-ng-app="bibliografiaApp" data-ng-controller="documentoController">
+<h1>Documento</h1><br>
+<form>
+<label>T&iacute;tulo</label><input type="text" data-ng-model="documento.titulo"><br>
+<label>Ano</label><input type="text" data-ng-model="documento.ano"><br>
+<label>Autores</label><input type="text" data-ng-model="documento.autores"><br>
+<label>Resumo</label><br>
+<textarea rows="5" data-ng-model="documento.resumo"></textarea><br>
+<!--<input type="text" data-ng-model="documento.resumo"><br>-->
+<label>Palavras-Chave</label><input type="text" data-ng-model="documento.palavrasChave"><br>
+<button data-ng-click="salvar(documento)">Enviar</button>
+</form>
+</div>
+
+<script src="js/angular.min.js"></script>
+<script src="js/bibliografia.js"></script>
+
+</body>
+</html>
