@@ -1,7 +1,7 @@
 var app = angular.module("bibliografiaApp", []);
 
 app.controller("documentoController", function($scope, $http){
-	var site = "http://bibliografia-fernandomalmeida.rhcloud.com/";
+	var site = "http://bibliografia-fernandomalmeida.rhcloud.com";
 	var api = "/api/documento";
 
 	$scope.documento = {
