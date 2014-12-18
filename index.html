@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html data-ng-app="paginaPessoal">
 <head>
 	<title>Fernando Mendonça de Almeida</title>
 	
@@ -38,15 +38,17 @@
 
 	</style>
 	<script src="bower_components/foundation/js/vendor/modernizr.js"></script>
+	<!--
 	<link rel="localization" href="locales/browser.json">
 	<script src="bower_components/l20n/l20n.min.js"></script>
+	-->
 </head>
 <body>
 	<header>
 		<h1 class="text-center">Fernando Mendonça de Almeida</h1>
 	</header>
 	
-	<main>
+	<main data-ng-controller="homeCtrl">
 		<div class="contain-to-grid sticky">
 			<nav class="top-bar" data-topbar role="navigation" data-options="scrolltop: false">
 				<ul class="title-area">
@@ -78,9 +80,15 @@
 				<div class="panel radius" data-equalizer-watch>
 					Currículo
 					<ul>
+						<li data-ng-repeat="link in linksCurriculo">
+							<a href="{{link.url}}">{{link.label}}</a>
+						</li>
+						<li ng-if="linksCurriculo.length == 0">Em breve...</li>
+						<!--
 						<li><a href="http://lattes.cnpq.br/0307827644596863">Lattes</a></li>
 						<li><a href="http://br.linkedin.com/pub/fernando-mendon%C3%A7a-de-almeida/21/3/52/">Linkedin</a></li>
 						<li><a href="https://github.com/fernandomalmeida/">Github</a></li>
+						-->
 						<!--
 						<li><a href="#">Resume.json</a></li>
 						-->
@@ -91,8 +99,12 @@
 				<div class="panel radius" data-equalizer-watch>
 					Projetos
 					<ul>
-						<li>Em breve...</li>
+						<li data-ng-repeat="link in linksProjetos">
+							<a href="{{link.url}}">{{link.label}}</a>
+						</li>
+						<li ng-if="linksProjetos.length == 0">Em breve...</li>
 						<!--
+						<li>Em breve...</li>
 						<li><a href="#">TEHII</a></li>
 						<li><a href="#">Automação com Android e Reconhecimento de Voz</a></li>
 						<li><a href="#">TCC Domótica</a></li>
@@ -107,8 +119,12 @@
 				<div class="panel radius" data-equalizer-watch>
 					Artigos
 					<ul>
-						<li>Em breve...</li>
+						<li data-ng-repeat="link in linksArtigos">
+							<a href="{{link.url}}">{{link.label}}</a>
+						</li>
+						<li ng-if="linksArtigos.length == 0">Em breve...</li>
 						<!--
+						<li>Em breve...</li>
 						<li><a href="#">Apresentação ENCODEV</a></li>
 						<li><a href="#">Desenvolvendo Bibliotecas para Arduino</a></li>
 						-->
@@ -119,22 +135,23 @@
 
 	</main>
 
-	<footer class="text-center">
+	<footer class="text-center" data-ng-controller="footerCtrl">		
+		<a ng-repeat="badge in badges" href="{{badge.url}}"><i class="fi-{{badge.icon}}"></i></a>
+
 		<!--
 		<a href="#"><i class="fi-social-facebook"></i></a>
-		-->
 		<a href="https://github.com/fernandomalmeida/"><i class="fi-social-github"></i></a>
 		<a href="http://br.linkedin.com/pub/fernando-mendon%C3%A7a-de-almeida/21/3/52/"><i class="fi-social-linkedin"></i></a>
-		<!--
 		<a href="#"><i class="fi-social-google-plus"></i></a>
 		<a href="#"><i class="fi-social-youtube"></i></a>
-		-->
 		<a href="mailto:fernando.m.al.91@gmail.com"><i class="fi-mail"></i></a>
+		-->
 	</footer>
 
 	<script src="bower_components/foundation/js/vendor/jquery.js"></script>
 	<script src="bower_components/foundation/js/foundation.min.js"></script>
 	<script src="bower_components/angularjs/angular.min.js"></script>
+	<script src="js/app.js"></script>
 	<script>
 		$(document).foundation();
 	</script>
