@@ -25,7 +25,12 @@ var paginaPessoal;
                 }
             ];
 
-            $scope.linksProjetos = [];
+            $scope.linksProjetos = [
+                {
+                    url: 'http://fernandomalmeida.github.io/deposito/jogo_da_velha/',
+                    label: 'Jogo da Velha em HTML5 + Canvas'
+                }
+            ];
             $scope.linksArtigos = [];
         }
         HomeCtrl.$inject = [
